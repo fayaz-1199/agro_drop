@@ -1,155 +1,24 @@
 <?php
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-$pageTitle = $pageTitle ?? 'Agro Drop';
-
+require_once __DIR__ . '/app.php';
+$pageTitle = $pageTitle ?? 'AgroDrop';
 $baseUrl = '/agro_drop';
-
+$cartCount = array_sum($_SESSION['cart'] ?? []);
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        <?= htmlspecialchars($pageTitle) ?> - Agro Drop
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="<?= $baseUrl ?>/style.css"
-    >
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><?= e($pageTitle) ?> | AgroDrop</title>
+    <link rel="stylesheet" href="<?= $baseUrl ?>/style.css">
 </head>
 
 <body>
-
-<header class="main-header">
-
-    <div class="container header-content">
-
-        <!-- Logo -->
-
-        <a
-            href="<?= $baseUrl ?>/index.php"
-            class="logo"
-        >
-
-            <span class="logo-icon">
-                🌱
-            </span>
-
-            <span class="logo-text">
-                Agro <strong>Drop</strong>
-            </span>
-
-        </a>
-
-
-        <!-- Menu -->
-
-        <nav class="navbar">
-
-            <a
-                href="<?= $baseUrl ?>/index.php"
-                class="nav-link"
-            >
-                Home
-            </a>
-
-            <a
-                href="<?= $baseUrl ?>/customer/index.php"
-                class="nav-link"
-            >
-                Customer
-            </a>
-
-            <a
-                href="<?= $baseUrl ?>/product/index.php"
-                class="nav-link"
-            >
-                Product
-            </a>
-
-            <a
-                href="<?= $baseUrl ?>/order/index.php"
-                class="nav-link"
-            >
-                Order
-            </a>
-
-            <a
-                href="<?= $baseUrl ?>/review/index.php"
-                class="nav-link"
-            >
-                Review
-            </a>
-
-        </nav>
-
-
-        <!-- Right Side -->
-
-        <div class="header-actions">
-
-            <a
-                href="#"
-                class="cart-btn"
-            >
-                🛒
-
-                <span class="cart-count">
-                    0
-                </span>
-            </a>
-
-            <?php if (isset($_SESSION['customer_id'])): ?>
-
-                <span class="customer-name">
-                    Hi,
-                    <?= htmlspecialchars($_SESSION['customer_name']) ?>
-                </span>
-
-                <a
-                    href="<?= $baseUrl ?>/customer/logout.php"
-                    class="logout-btn"
-                >
-                    Logout
-                </a>
-
-            <?php else: ?>
-
-                <a
-                    href="<?= $baseUrl ?>/customer/login.php"
-                    class="login-btn"
-                >
-                    Login
-                </a>
-
-                <a
-                    href="<?= $baseUrl ?>/customer/register.php"
-                    class="register-btn"
-                >
-                    Register
-                </a>
-
-            <?php endif; ?>
-
+    <header class="main-header">
+        <div class="container header-content"><a href="<?= $baseUrl ?>/index.php" class="logo">🌱 <span>Agro<strong>Drop</strong></span></a>
+            <nav class="navbar"><a href="<?= $baseUrl ?>/shop.php">Shop</a><a href="<?= $baseUrl ?>/shop.php?category=Vegetables">Vegetables</a><a href="<?= $baseUrl ?>/shop.php?category=Fruits">Fruits</a><?php if (is_farmer()): ?><a href="<?= $baseUrl ?>/farmer/dashboard.php">Farmer Panel</a><?php elseif (current_user()): ?><a href="<?= $baseUrl ?>/review/index.php">My Reviews</a><?php endif; ?></nav>
+            <div class="header-actions"><a class="cart-link" href="<?= $baseUrl ?>/cart.php">🛒 <span><?= $cartCount ?></span></a><?php if (current_user()): ?><a class="account-link" href="<?= $baseUrl ?>/my-orders.php">Hi, <?= e(explode(' ', current_user()['name'])[0]) ?></a><a class="login-btn" href="<?= $baseUrl ?>/auth/logout.php">Logout</a><?php else: ?><a class="login-btn" href="<?= $baseUrl ?>/auth/login.php">Login</a><a class="primary-btn header-cta" href="<?= $baseUrl ?>/auth/register.php">Join AgroDrop</a><?php endif; ?></div>
         </div>
-
-    </div>
-
-</header>
-
-<main>
+    </header>
+    <main>

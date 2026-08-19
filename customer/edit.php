@@ -77,10 +77,7 @@ require_once '../includes/header.php';
 
         </div>
 
-        <a
-            href="index.php"
-            class="secondary-btn"
-        >
+        <a href="index.php" class="secondary-btn">
             ← Back
         </a>
 
@@ -114,16 +111,9 @@ require_once '../includes/header.php';
         </div>
 
 
-        <form
-            action="update.php"
-            method="POST"
-        >
+        <form action="update.php" method="POST">
 
-            <input
-                type="hidden"
-                name="id"
-                value="<?= (int) $customer['id'] ?>"
-            >
+            <input type="hidden" name="id" value="<?= (int) $customer['id'] ?>">
 
 
             <div class="form-grid">
@@ -138,17 +128,11 @@ require_once '../includes/header.php';
                         <span>*</span>
                     </label>
 
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Enter customer name"
-                        value="<?= htmlspecialchars(
+                    <input type="text" name="name" placeholder="Enter customer name" value="<?= htmlspecialchars(
                             $customer['name'] ?? '',
                             ENT_QUOTES,
                             'UTF-8'
-                        ) ?>"
-                        required
-                    >
+                        ) ?>" required>
 
                 </div>
 
@@ -162,17 +146,11 @@ require_once '../includes/header.php';
                         <span>*</span>
                     </label>
 
-                    <input
-                        type="text"
-                        name="phone"
-                        placeholder="Enter phone number"
-                        value="<?= htmlspecialchars(
+                    <input type="text" name="phone" placeholder="Enter phone number" value="<?= htmlspecialchars(
                             $customer['phone'] ?? '',
                             ENT_QUOTES,
                             'UTF-8'
-                        ) ?>"
-                        required
-                    >
+                        ) ?>" required>
 
                 </div>
 
@@ -185,16 +163,11 @@ require_once '../includes/header.php';
                         Email Address
                     </label>
 
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter email address"
-                        value="<?= htmlspecialchars(
+                    <input type="email" name="email" placeholder="Enter email address" value="<?= htmlspecialchars(
                             $customer['email'] ?? '',
                             ENT_QUOTES,
                             'UTF-8'
-                        ) ?>"
-                    >
+                        ) ?>">
 
                 </div>
 
@@ -209,23 +182,17 @@ require_once '../includes/header.php';
 
                     <select name="status">
 
-                        <option
-                            value="1"
-                            <?= ((int) $customer['status'] === 1)
+                        <option value="1" <?= ((int) $customer['status'] === 1)
                                 ? 'selected'
                                 : ''
-                            ?>
-                        >
+?>>
                             Active
                         </option>
 
-                        <option
-                            value="0"
-                            <?= ((int) $customer['status'] === 0)
-                                ? 'selected'
-                                : ''
-                            ?>
-                        >
+                        <option value="0" <?= ((int) $customer['status'] === 0)
+    ? 'selected'
+    : ''
+?>>
                             Inactive
                         </option>
 
@@ -242,11 +209,7 @@ require_once '../includes/header.php';
                         Address
                     </label>
 
-                    <textarea
-                        name="address"
-                        rows="4"
-                        placeholder="Enter customer address"
-                    ><?= htmlspecialchars(
+                    <textarea name="address" rows="4" placeholder="Enter customer address"><?= htmlspecialchars(
                         $customer['address'] ?? '',
                         ENT_QUOTES,
                         'UTF-8'
@@ -260,17 +223,11 @@ require_once '../includes/header.php';
 
             <div class="form-actions">
 
-                <a
-                    href="index.php"
-                    class="secondary-btn"
-                >
+                <a href="index.php" class="secondary-btn">
                     Cancel
                 </a>
 
-                <button
-                    type="submit"
-                    class="primary-btn"
-                >
+                <button type="submit" class="primary-btn">
                     Update Customer
                 </button>
 

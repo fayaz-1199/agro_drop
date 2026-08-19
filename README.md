@@ -1,142 +1,69 @@
 # AgroDrop 🌱
 
-AgroDrop is a web-based agricultural marketplace that connects farmers directly with consumers. The platform helps farmers sell their products online while allowing customers to purchase fresh agricultural products easily and efficiently.
+AgroDrop is a complete PHP and MySQL agricultural marketplace. It gives customers a simple, mobile-friendly way to buy fresh products directly from farmers, while farmers can operate their own product inventory and fulfil orders.
 
-## 📖 Project Overview
+## What is included
 
-Agriculture plays a vital role in Bangladesh's economy. However, farmers often face difficulties in selling products at fair prices due to intermediaries. AgroDrop aims to solve this problem by creating a digital marketplace where farmers and consumers can interact directly.
+### Customer marketplace
 
-## 🎯 Objectives
+- Professional home page and product catalogue
+- Search and category browsing
+- Product details with farm information and live stock
+- Session-based shopping cart
+- Checkout with Cash on Delivery or bKash selection
+- Order history and delivery-status tracking
+- Registration and secure password login
 
-* Connect farmers directly with consumers.
-* Reduce dependency on middlemen.
-* Ensure fair pricing.
-* Provide fresh agricultural products.
-* Create a transparent online marketplace.
+### Farmer centre
 
-## 🚀 Features
+- Farmer registration and role-based login
+- Farmer dashboard: products, inventory, sales, received orders
+- Add, edit and delete only the farmer's own products
+- Customer order list and order-status updates
 
-### Farmer Module
+### Built-in safeguards
 
-* Registration & Login
-* Add Products
-* Update Products
-* Delete Products
-* Manage Inventory
-* View Orders
+- Passwords are hashed using `password_hash()`
+- Customer/farmer pages require login and role checks
+- Product stock is checked and reduced inside a database transaction at checkout
+- SQL writes use prepared statements
 
-### Customer Module
+## Installation
 
-* Registration & Login
-* Browse Products
-* Search Products
-* View Product Details
-* Place Orders
-* Order History
+1. Start Apache and MySQL in XAMPP, Laragon, or another PHP stack.
+2. Create/import the database by importing [agro_drop.sql](agro_drop.sql) in phpMyAdmin.
 
-### Admin Module
+   > The SQL file resets the AgroDrop tables, so use it only for a new local installation.
 
-* Admin Dashboard
-* User Management
-* Product Monitoring
-* Order Management
-* Reports & Statistics
+3. Set the correct MySQL details in [config/database.php](config/database.php). The supplied configuration uses `root` / `root`.
+4. Place the project in your web-server root as `agro_drop` and visit:
 
-## 🛠️ Technologies Used
+   ```text
+   http://localhost/agro_drop/
+   ```
 
-### Frontend
+## Demo accounts
 
-* HTML5
-* CSS3
-* Bootstrap 5
-* JavaScript
+| Role | Email | Password |
+|---|---|---|
+| Customer | `customer@agrodrop.test` | `password123` |
+| Farmer | `farmer@agrodrop.test` | `password123` |
 
-### Backend
+## Project pages
 
-* PHP
+| Page | Purpose |
+|---|---|
+| `index.php` | Customer-facing landing page |
+| `shop.php` | Searchable product marketplace |
+| `cart.php` / `checkout.php` | Purchase flow |
+| `my-orders.php` | Customer orders |
+| `farmer/dashboard.php` | Farmer dashboard |
+| `farmer/products.php` | Product and stock management |
+| `farmer/orders.php` | Farmer order processing |
 
-### Database
+## Technology
 
-* MySQL
-
-### Development Tools
-
-* XAMPP
-* Git
-* GitHub
-
-## 🗄️ Database Structure
-
-### Users
-
-* id
-* name
-* email
-* password
-* role
-* status
-
-### Products
-
-* id
-* farmer_id
-* product_name
-* category
-* price
-* quantity
-* image
-
-### Orders
-
-* id
-* customer_id
-* product_id
-* quantity
-* total_price
-* order_date
-* status
-
-## ⚙️ Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/agrodrop.git
-```
-
-2. Move to project directory
-
-```bash
-cd agrodrop
-```
-
-3. Import the database into MySQL.
-
-4. Configure database connection.
-
-5. Start Apache and MySQL using XAMPP.
-
-6. Run the project in your browser.
-
-## 👥 Team Members
-
-### Fayaz Wahid and Md.Shihab Uddin
-
-* Frontend Development
-* Farmer Module
-* Database Design
-* Customer Module
-* Admin Module
-* Documentation
-
-## 📌 Future Improvements
-
-* Online Payment Gateway
-* Mobile Application
-* Real-time Order Tracking
-* Product Reviews and Ratings
-* SMS Notifications
-
-## 📄 License
-
-This project is developed for educational purposes.
+- PHP 8+
+- MySQL 8+ / MariaDB
+- HTML5 and responsive CSS
+- No framework or external setup required

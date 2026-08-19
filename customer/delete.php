@@ -1,4 +1,3 @@
-
 <?php
 
 error_reporting(E_ALL);
@@ -262,10 +261,10 @@ try {
     echo "<p>
         <strong>File:</strong>
         " . htmlspecialchars(
-            $e->getFile(),
-            ENT_QUOTES,
-            'UTF-8'
-        ) . "
+        $e->getFile(),
+        ENT_QUOTES,
+        'UTF-8'
+    ) . "
     </p>";
 
     echo "<p>

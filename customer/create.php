@@ -76,19 +76,19 @@ if (isset($_GET['edit'])) {
 
     <?php if (isset($_GET['success'])): ?>
 
-        <div class="alert alert-success">
+    <div class="alert alert-success">
 
-            <span class="alert-icon">
-                ✓
-            </span>
+        <span class="alert-icon">
+            ✓
+        </span>
 
-            <span>
-                <?= htmlspecialchars(
+        <span>
+            <?= htmlspecialchars(
                     $_GET['success']
                 ) ?>
-            </span>
+        </span>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -100,19 +100,19 @@ if (isset($_GET['edit'])) {
 
     <?php if (isset($_GET['error'])): ?>
 
-        <div class="alert alert-error">
+    <div class="alert alert-error">
 
-            <span class="alert-icon">
-                !
-            </span>
+        <span class="alert-icon">
+            !
+        </span>
 
-            <span>
-                <?= htmlspecialchars(
+        <span>
+            <?= htmlspecialchars(
                     $_GET['error']
                 ) ?>
-            </span>
+        </span>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -124,20 +124,20 @@ if (isset($_GET['edit'])) {
 
     <?php if (isset($databaseError)): ?>
 
-        <div class="alert alert-error">
+    <div class="alert alert-error">
 
-            <span class="alert-icon">
-                !
-            </span>
+        <span class="alert-icon">
+            !
+        </span>
 
-            <span>
-                Database Error:
-                <?= htmlspecialchars(
+        <span>
+            Database Error:
+            <?= htmlspecialchars(
                     $databaseError
                 ) ?>
-            </span>
+        </span>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -173,11 +173,7 @@ if (isset($_GET['edit'])) {
             </div>
 
 
-            <button
-                type="button"
-                class="secondary-btn"
-                id="openCustomerModal2"
-            >
+            <button type="button" class="secondary-btn" id="openCustomerModal2">
                 + Add Customer
             </button>
 
@@ -234,46 +230,40 @@ if (isset($_GET['edit'])) {
                     <?php if (!empty($customers)): ?>
 
 
-                        <?php foreach (
+                    <?php foreach (
                             $customers as $customer
                         ): ?>
 
 
-                            <tr>
+                    <tr>
 
 
-                                <!-- ID -->
+                        <!-- ID -->
 
-                                <td>
+                        <td>
 
-                                    <span
-                                        class="customer-id"
-                                    >
+                            <span class="customer-id">
 
-                                        #
-                                        <?= (int)
+                                #
+                                <?= (int)
                                             $customer['id']
-                                        ?>
+                            ?>
 
-                                    </span>
+                            </span>
 
-                                </td>
+                        </td>
 
 
 
-                                <!-- NAME -->
+                        <!-- NAME -->
 
-                                <td>
+                        <td>
 
-                                    <div
-                                        class="customer-name"
-                                    >
+                            <div class="customer-name">
 
-                                        <div
-                                            class="customer-avatar"
-                                        >
+                                <div class="customer-avatar">
 
-                                            <?= strtoupper(
+                                    <?= strtoupper(
                                                 substr(
                                                     $customer['name'],
                                                     0,
@@ -281,246 +271,211 @@ if (isset($_GET['edit'])) {
                                                 )
                                             ) ?>
 
-                                        </div>
+                                </div>
 
 
-                                        <div>
+                                <div>
 
-                                            <strong>
+                                    <strong>
 
-                                                <?= htmlspecialchars(
+                                        <?= htmlspecialchars(
                                                     $customer['name']
                                                 ) ?>
 
-                                            </strong>
+                                    </strong>
 
-                                        </div>
+                                </div>
 
-                                    </div>
+                            </div>
 
-                                </td>
+                        </td>
 
 
 
-                                <!-- PHONE -->
+                        <!-- PHONE -->
 
-                                <td>
+                        <td>
 
-                                    <span
-                                        class="phone-text"
-                                    >
+                            <span class="phone-text">
 
-                                        📞
+                                📞
 
-                                        <?= htmlspecialchars(
+                                <?= htmlspecialchars(
                                             $customer['phone']
                                         ) ?>
 
-                                    </span>
+                            </span>
 
-                                </td>
+                        </td>
 
 
 
-                                <!-- EMAIL -->
+                        <!-- EMAIL -->
 
-                                <td>
+                        <td>
 
-                                    <?php if (
+                            <?php if (
                                         !empty(
                                             $customer['email']
                                         )
                                     ): ?>
 
-                                        <?= htmlspecialchars(
+                            <?= htmlspecialchars(
                                             $customer['email']
                                         ) ?>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <span class="muted">
-                                            —
-                                        </span>
+                            <span class="muted">
+                                —
+                            </span>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </td>
+                        </td>
 
 
 
-                                <!-- ADDRESS -->
+                        <!-- ADDRESS -->
 
-                                <td>
+                        <td>
 
-                                    <?php if (
+                            <?php if (
                                         !empty(
                                             $customer['address']
                                         )
                                     ): ?>
 
-                                        <span
-                                            class="address-text"
-                                            title="<?= htmlspecialchars(
+                            <span class="address-text" title="<?= htmlspecialchars(
                                                 $customer['address']
-                                            ) ?>"
-                                        >
+                                            ) ?>">
 
-                                            <?= htmlspecialchars(
+                                <?= htmlspecialchars(
                                                 $customer['address']
                                             ) ?>
 
-                                        </span>
+                            </span>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <span class="muted">
-                                            —
-                                        </span>
+                            <span class="muted">
+                                —
+                            </span>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </td>
+                        </td>
 
 
 
-                                <!-- STATUS -->
+                        <!-- STATUS -->
 
-                                <td>
+                        <td>
 
-                                    <?php if (
+                            <?php if (
                                         $customer['status'] == 1
                                     ): ?>
 
-                                        <span
-                                            class="status active"
-                                        >
+                            <span class="status active">
 
-                                            <span>
-                                                ●
-                                            </span>
+                                <span>
+                                    ●
+                                </span>
 
-                                            Active
+                                Active
 
-                                        </span>
+                            </span>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <span
-                                            class="status inactive"
-                                        >
+                            <span class="status inactive">
 
-                                            <span>
-                                                ●
-                                            </span>
+                                <span>
+                                    ●
+                                </span>
 
-                                            Inactive
+                                Inactive
 
-                                        </span>
+                            </span>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </td>
+                        </td>
 
 
 
-                                <!-- ACTION -->
+                        <!-- ACTION -->
 
-                                <td>
+                        <td>
 
-                                    <div
-                                        class="action-buttons"
-                                    >
+                            <div class="action-buttons">
 
 
-                                        <!-- VIEW -->
+                                <!-- VIEW -->
 
-                                        <a
-                                            href="show.php?id=<?= (int) $customer['id'] ?>"
-                                            class="action-btn view"
-                                            title="View Customer"
-                                        >
-                                            👁
-                                        </a>
+                                <a href="show.php?id=<?= (int) $customer['id'] ?>" class="action-btn view" title="View Customer">
+                                    👁
+                                </a>
 
 
 
-                                        <!-- EDIT -->
+                                <!-- EDIT -->
 
-                                        <a
-                                            href="edit.php?id=<?= (int) $customer['id'] ?>"
-                                            class="action-btn edit"
-                                            title="Edit Customer"
-                                        >
-                                            ✏
-                                        </a>
+                                <a href="edit.php?id=<?= (int) $customer['id'] ?>" class="action-btn edit" title="Edit Customer">
+                                    ✏
+                                </a>
 
 
 
-                                        <!-- DELETE -->
+                                <!-- DELETE -->
 
-                                        <a
-                                            href="delete.php?id=<?= (int) $customer['id'] ?>"
-                                            class="action-btn delete"
-                                            title="Delete Customer"
-                                            onclick="return confirm('Are you sure you want to delete this customer?')"
-                                        >
-                                            🗑
-                                        </a>
+                                <a href="delete.php?id=<?= (int) $customer['id'] ?>" class="action-btn delete" title="Delete Customer" onclick="return confirm('Are you sure you want to delete this customer?')">
+                                    🗑
+                                </a>
 
 
-                                    </div>
+                            </div>
 
-                                </td>
-
-
-                            </tr>
+                        </td>
 
 
-                        <?php endforeach; ?>
+                    </tr>
+
+
+                    <?php endforeach; ?>
 
 
                     <?php else: ?>
 
 
-                        <tr>
+                    <tr>
 
-                            <td
-                                colspan="7"
-                                class="empty-data"
-                            >
+                        <td colspan="7" class="empty-data">
 
-                                <div
-                                    class="empty-state"
-                                >
+                            <div class="empty-state">
 
-                                    <div
-                                        class="empty-icon"
-                                    >
-                                        👥
-                                    </div>
-
-                                    <h3>
-                                        No Customers Found
-                                    </h3>
-
-                                    <p>
-                                        Start by adding your first customer.
-                                    </p>
-
-
-                                    <button
-                                        type="button"
-                                        class="primary-btn"
-                                        id="openCustomerModal3"
-                                    >
-                                        + Add Customer
-                                    </button>
-
+                                <div class="empty-icon">
+                                    👥
                                 </div>
 
-                            </td>
+                                <h3>
+                                    No Customers Found
+                                </h3>
 
-                        </tr>
+                                <p>
+                                    Start by adding your first customer.
+                                </p>
+
+
+                                <button type="button" class="primary-btn" id="openCustomerModal3">
+                                    + Add Customer
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
 
 
                     <?php endif; ?>
@@ -542,38 +497,27 @@ if (isset($_GET['edit'])) {
      ADD CUSTOMER MODAL
 ================================================== -->
 
-<div
-    id="customerModal"
-    class="customer-modal"
->
+<div id="customerModal" class="customer-modal">
 
 
     <!-- OVERLAY -->
 
-    <div
-        class="customer-modal-overlay"
-    ></div>
+    <div class="customer-modal-overlay"></div>
 
 
 
     <!-- MODAL -->
 
-    <div
-        class="customer-modal-content"
-    >
+    <div class="customer-modal-content">
 
 
         <!-- MODAL HEADER -->
 
-        <div
-            class="customer-modal-header"
-        >
+        <div class="customer-modal-header">
 
             <div class="form-title">
 
-                <div
-                    class="form-title-icon"
-                >
+                <div class="form-title-icon">
                     👤
                 </div>
 
@@ -592,10 +536,7 @@ if (isset($_GET['edit'])) {
             </div>
 
 
-            <button
-                type="button"
-                class="close-btn modal-close"
-            >
+            <button type="button" class="close-btn modal-close">
                 ×
             </button>
 
@@ -605,10 +546,7 @@ if (isset($_GET['edit'])) {
 
         <!-- FORM -->
 
-        <form
-            action="store.php"
-            method="POST"
-        >
+        <form action="store.php" method="POST">
 
 
             <div class="modal-form-body">
@@ -625,12 +563,7 @@ if (isset($_GET['edit'])) {
                             <span>*</span>
                         </label>
 
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Enter customer name"
-                            required
-                        >
+                        <input type="text" name="name" placeholder="Enter customer name" required>
 
                     </div>
 
@@ -645,12 +578,7 @@ if (isset($_GET['edit'])) {
                             <span>*</span>
                         </label>
 
-                        <input
-                            type="text"
-                            name="phone"
-                            placeholder="Enter phone number"
-                            required
-                        >
+                        <input type="text" name="phone" placeholder="Enter phone number" required>
 
                     </div>
 
@@ -664,11 +592,7 @@ if (isset($_GET['edit'])) {
                             Email Address
                         </label>
 
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter email address"
-                        >
+                        <input type="email" name="email" placeholder="Enter email address">
 
                     </div>
 
@@ -700,19 +624,13 @@ if (isset($_GET['edit'])) {
 
                     <!-- ADDRESS -->
 
-                    <div
-                        class="form-group form-full"
-                    >
+                    <div class="form-group form-full">
 
                         <label>
                             Address
                         </label>
 
-                        <textarea
-                            name="address"
-                            rows="4"
-                            placeholder="Enter customer address"
-                        ></textarea>
+                        <textarea name="address" rows="4" placeholder="Enter customer address"></textarea>
 
                     </div>
 
@@ -725,22 +643,14 @@ if (isset($_GET['edit'])) {
 
             <!-- MODAL FOOTER -->
 
-            <div
-                class="customer-modal-footer"
-            >
+            <div class="customer-modal-footer">
 
-                <button
-                    type="button"
-                    class="secondary-btn modal-close"
-                >
+                <button type="button" class="secondary-btn modal-close">
                     Cancel
                 </button>
 
 
-                <button
-                    type="submit"
-                    class="primary-btn"
-                >
+                <button type="submit" class="primary-btn">
                     Save Customer
                 </button>
 
@@ -760,173 +670,172 @@ if (isset($_GET['edit'])) {
 ================================================== -->
 
 <script>
+    document.addEventListener(
+        'DOMContentLoaded',
+        function() {
 
-document.addEventListener(
-    'DOMContentLoaded',
-    function () {
-
-        const modal =
-            document.getElementById(
-                'customerModal'
-            );
-
-
-        const openButtons = [
-
-            document.getElementById(
-                'openCustomerModal'
-            ),
-
-            document.getElementById(
-                'openCustomerModal2'
-            ),
-
-            document.getElementById(
-                'openCustomerModal3'
-            )
-
-        ];
+            const modal =
+                document.getElementById(
+                    'customerModal'
+                );
 
 
-        const closeButtons =
-            document.querySelectorAll(
-                '.modal-close'
-            );
+            const openButtons = [
+
+                document.getElementById(
+                    'openCustomerModal'
+                ),
+
+                document.getElementById(
+                    'openCustomerModal2'
+                ),
+
+                document.getElementById(
+                    'openCustomerModal3'
+                )
+
+            ];
 
 
-        const overlay =
-            document.querySelector(
-                '.customer-modal-overlay'
-            );
+            const closeButtons =
+                document.querySelectorAll(
+                    '.modal-close'
+                );
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Open Modal
-        |--------------------------------------------------------------------------
-        */
+            const overlay =
+                document.querySelector(
+                    '.customer-modal-overlay'
+                );
 
-        function openModal() {
 
-            if (!modal) {
-                return;
+            /*
+            |--------------------------------------------------------------------------
+            | Open Modal
+            |--------------------------------------------------------------------------
+            */
+
+            function openModal() {
+
+                if (!modal) {
+                    return;
+                }
+
+                modal.classList.add('show');
+
+                document.body.classList.add(
+                    'modal-open'
+                );
+
             }
 
-            modal.classList.add('show');
 
-            document.body.classList.add(
-                'modal-open'
-            );
+            /*
+            |--------------------------------------------------------------------------
+            | Close Modal
+            |--------------------------------------------------------------------------
+            */
 
-        }
+            function closeModal() {
 
+                if (!modal) {
+                    return;
+                }
 
-        /*
-        |--------------------------------------------------------------------------
-        | Close Modal
-        |--------------------------------------------------------------------------
-        */
+                modal.classList.remove(
+                    'show'
+                );
 
-        function closeModal() {
+                document.body.classList.remove(
+                    'modal-open'
+                );
 
-            if (!modal) {
-                return;
             }
 
-            modal.classList.remove(
-                'show'
+
+            /*
+            |--------------------------------------------------------------------------
+            | Open Buttons
+            |--------------------------------------------------------------------------
+            */
+
+            openButtons.forEach(
+                function(button) {
+
+                    if (button) {
+
+                        button.addEventListener(
+                            'click',
+                            openModal
+                        );
+
+                    }
+
+                }
             );
 
-            document.body.classList.remove(
-                'modal-open'
-            );
 
-        }
+            /*
+            |--------------------------------------------------------------------------
+            | Close Buttons
+            |--------------------------------------------------------------------------
+            */
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | Open Buttons
-        |--------------------------------------------------------------------------
-        */
-
-        openButtons.forEach(
-            function (button) {
-
-                if (button) {
+            closeButtons.forEach(
+                function(button) {
 
                     button.addEventListener(
                         'click',
-                        openModal
+                        closeModal
                     );
 
                 }
-
-            }
-        );
+            );
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Close Buttons
-        |--------------------------------------------------------------------------
-        */
+            /*
+            |--------------------------------------------------------------------------
+            | Overlay Click
+            |--------------------------------------------------------------------------
+            */
 
-        closeButtons.forEach(
-            function (button) {
+            if (overlay) {
 
-                button.addEventListener(
+                overlay.addEventListener(
                     'click',
                     closeModal
                 );
 
             }
-        );
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | Overlay Click
-        |--------------------------------------------------------------------------
-        */
+            /*
+            |--------------------------------------------------------------------------
+            | ESC Key
+            |--------------------------------------------------------------------------
+            */
 
-        if (overlay) {
+            document.addEventListener(
+                'keydown',
+                function(event) {
 
-            overlay.addEventListener(
-                'click',
-                closeModal
+                    if (
+                        event.key === 'Escape' &&
+                        modal &&
+                        modal.classList.contains(
+                            'show'
+                        )
+                    ) {
+
+                        closeModal();
+
+                    }
+
+                }
             );
 
         }
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | ESC Key
-        |--------------------------------------------------------------------------
-        */
-
-        document.addEventListener(
-            'keydown',
-            function (event) {
-
-                if (
-                    event.key === 'Escape' &&
-                    modal &&
-                    modal.classList.contains(
-                        'show'
-                    )
-                ) {
-
-                    closeModal();
-
-                }
-
-            }
-        );
-
-    }
-);
+    );
 
 </script>
 

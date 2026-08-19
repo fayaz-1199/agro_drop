@@ -1,134 +1,21 @@
-```php
 </main>
-
 <footer class="main-footer">
-
     <div class="container footer-content">
-
-        <!-- About -->
-
-        <div class="footer-column">
-
-            <div class="footer-logo">
-
-                <span class="logo-icon">
-                    🌱
-                </span>
-
-                <span class="logo-text">
-                    Agro <strong>Drop</strong>
-                </span>
-
-            </div>
-
-            <p>
-                Agro Drop is an agricultural marketplace
-                where customers can easily buy quality
-                agricultural products.
-            </p>
-
+        <div><a class="logo" href="<?= $baseUrl ?>/index.php">🌱 Agro<strong>Drop</strong></a>
+            <p>Bangladesh's simple marketplace for fresh food, directly from trusted farmers.</p>
         </div>
-
-
-        <!-- Menu -->
-
-        <div class="footer-column">
-
-            <h3>
-                Quick Links
-            </h3>
-
-            <a href="/agro_drop/index.php">
-                Home
-            </a>
-
-            <a href="/agro_drop/customer/index.php">
-                Customer
-            </a>
-
-            <a href="/agro_drop/product/index.php">
-                Product
-            </a>
-
-            <a href="/agro_drop/order/index.php">
-                Order
-            </a>
-
-            <a href="/agro_drop/review/index.php">
-                Review
-            </a>
-
+        <div>
+            <h3>Shop</h3><a href="<?= $baseUrl ?>/shop.php">All products</a><a href="<?= $baseUrl ?>/cart.php">My cart</a><a href="<?= $baseUrl ?>/my-orders.php">My orders</a>
         </div>
-
-
-        <!-- Contact -->
-
-        <div class="footer-column">
-
-            <h3>
-                Contact
-            </h3>
-
-            <p>
-                📞 +880 1XXXXXXXXX
-            </p>
-
-            <p>
-                ✉️ info@agrodrop.com
-            </p>
-
-            <p>
-                📍 Dhaka, Bangladesh
-            </p>
-
+        <div>
+            <h3>Support</h3>
+            <p>📞 01700 000 000</p>
+            <p>✉️ support@agrodrop.test</p>
+            <p>📍 Dhaka, Bangladesh</p>
         </div>
-
-
-        <!-- Social -->
-
-        <div class="footer-column">
-
-            <h3>
-                Follow Us
-            </h3>
-
-            <div class="social-links">
-
-                <a href="#">
-                    Facebook
-                </a>
-
-                <a href="#">
-                    Instagram
-                </a>
-
-                <a href="#">
-                    YouTube
-                </a>
-
-            </div>
-
-        </div>
-
     </div>
-
-
-    <div class="footer-bottom">
-
-        <div class="container">
-
-            <p>
-                © <?= date('Y') ?> Agro Drop.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
-    </div>
-
+    <div class="footer-bottom">© <?= date('Y') ?> AgroDrop. Built for local farmers and families.</div>
 </footer>
-
 </body>
 
 </html>
-```

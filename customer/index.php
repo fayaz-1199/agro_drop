@@ -86,19 +86,19 @@ while ($row = $result->fetch_assoc()) {
 
     <?php if (isset($_GET['success'])): ?>
 
-        <div class="alert alert-success">
+    <div class="alert alert-success">
 
-            <span class="alert-icon">
-                ✓
-            </span>
+        <span class="alert-icon">
+            ✓
+        </span>
 
-            <span>
-                <?= htmlspecialchars(
+        <span>
+            <?= htmlspecialchars(
                     $_GET['success']
                 ) ?>
-            </span>
+        </span>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -109,19 +109,19 @@ while ($row = $result->fetch_assoc()) {
 
     <?php if (isset($_GET['error'])): ?>
 
-        <div class="alert alert-error">
+    <div class="alert alert-error">
 
-            <span class="alert-icon">
-                !
-            </span>
+        <span class="alert-icon">
+            !
+        </span>
 
-            <span>
-                <?= htmlspecialchars(
+        <span>
+            <?= htmlspecialchars(
                     $_GET['error']
                 ) ?>
-            </span>
+        </span>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -132,239 +132,196 @@ while ($row = $result->fetch_assoc()) {
 
     <?php if (isset($_GET['add']) || $editCustomer): ?>
 
-        <div class="form-card">
+    <div class="form-card">
 
 
-            <div class="form-card-header">
+        <div class="form-card-header">
 
-                <div class="form-title">
+            <div class="form-title">
 
-                    <div class="form-title-icon">
+                <div class="form-title-icon">
 
-                        <?= $editCustomer
+                    <?= $editCustomer
                             ? '✏️'
                             : '👤'
-                        ?>
-
-                    </div>
-
-                    <div>
-
-                        <h2>
-
-                            <?= $editCustomer
-                                ? 'Edit Customer'
-                                : 'Add Customer'
-                            ?>
-
-                        </h2>
-
-                        <p>
-
-                            <?= $editCustomer
-                                ? 'Update customer information.'
-                                : 'Enter new customer information.'
-                            ?>
-
-                        </p>
-
-                    </div>
+        ?>
 
                 </div>
 
+                <div>
 
-                <a
-                    href="index.php"
-                    class="close-btn"
-                >
-                    ×
-                </a>
+                    <h2>
+
+                        <?= $editCustomer
+                ? 'Edit Customer'
+                : 'Add Customer'
+        ?>
+
+                    </h2>
+
+                    <p>
+
+                        <?= $editCustomer
+            ? 'Update customer information.'
+            : 'Enter new customer information.'
+        ?>
+
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- FORM -->
+            <a href="index.php" class="close-btn">
+                ×
+            </a>
 
-            <form
-                action="<?= $editCustomer
+        </div>
+
+
+        <!-- FORM -->
+
+        <form action="<?= $editCustomer
                     ? 'update.php'
                     : 'store.php'
-                ?>"
-                method="POST"
-            >
+        ?>" method="POST">
 
 
-                <?php if ($editCustomer): ?>
+            <?php if ($editCustomer): ?>
 
-                    <input
-                        type="hidden"
-                        name="id"
-                        value="<?= $editCustomer['id'] ?>"
-                    >
+            <input type="hidden" name="id" value="<?= $editCustomer['id'] ?>">
 
-                <?php endif; ?>
+            <?php endif; ?>
 
 
-                <div class="form-grid">
+            <div class="form-grid">
 
 
-                    <!-- NAME -->
+                <!-- NAME -->
 
-                    <div class="form-group">
+                <div class="form-group">
 
-                        <label>
-                            Customer Name
-                            <span>*</span>
-                        </label>
+                    <label>
+                        Customer Name
+                        <span>*</span>
+                    </label>
 
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Enter customer name"
-                            value="<?= htmlspecialchars(
+                    <input type="text" name="name" placeholder="Enter customer name" value="<?= htmlspecialchars(
                                 $editCustomer['name'] ?? ''
-                            ) ?>"
-                            required
-                        >
+                            ) ?>" required>
 
-                    </div>
+                </div>
 
 
-                    <!-- PHONE -->
+                <!-- PHONE -->
 
-                    <div class="form-group">
+                <div class="form-group">
 
-                        <label>
-                            Phone Number
-                            <span>*</span>
-                        </label>
+                    <label>
+                        Phone Number
+                        <span>*</span>
+                    </label>
 
-                        <input
-                            type="text"
-                            name="phone"
-                            placeholder="Enter phone number"
-                            value="<?= htmlspecialchars(
+                    <input type="text" name="phone" placeholder="Enter phone number" value="<?= htmlspecialchars(
                                 $editCustomer['phone'] ?? ''
-                            ) ?>"
-                            required
-                        >
+                            ) ?>" required>
 
-                    </div>
+                </div>
 
 
-                    <!-- EMAIL -->
+                <!-- EMAIL -->
 
-                    <div class="form-group">
+                <div class="form-group">
 
-                        <label>
-                            Email Address
-                        </label>
+                    <label>
+                        Email Address
+                    </label>
 
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter email address"
-                            value="<?= htmlspecialchars(
+                    <input type="email" name="email" placeholder="Enter email address" value="<?= htmlspecialchars(
                                 $editCustomer['email'] ?? ''
-                            ) ?>"
-                        >
+                            ) ?>">
 
-                    </div>
+                </div>
 
 
-                    <!-- STATUS -->
+                <!-- STATUS -->
 
-                    <div class="form-group">
+                <div class="form-group">
 
-                        <label>
-                            Status
-                        </label>
+                    <label>
+                        Status
+                    </label>
 
-                        <select name="status">
+                    <select name="status">
 
-                            <option
-                                value="1"
-                                <?= (
+                        <option value="1" <?= (
                                     !$editCustomer ||
                                     $editCustomer['status'] == 1
                                 )
                                     ? 'selected'
                                     : ''
-                                ?>
-                            >
-                                Active
-                            </option>
+        ?>>
+                            Active
+                        </option>
 
-                            <option
-                                value="0"
-                                <?= (
+                        <option value="0" <?= (
                                     $editCustomer &&
                                     $editCustomer['status'] == 0
                                 )
-                                    ? 'selected'
-                                    : ''
-                                ?>
-                            >
-                                Inactive
-                            </option>
+            ? 'selected'
+            : ''
+        ?>>
+                            Inactive
+                        </option>
 
-                        </select>
+                    </select>
 
-                    </div>
+                </div>
 
 
-                    <!-- ADDRESS -->
+                <!-- ADDRESS -->
 
-                    <div class="form-group form-full">
+                <div class="form-group form-full">
 
-                        <label>
-                            Address
-                        </label>
+                    <label>
+                        Address
+                    </label>
 
-                        <textarea
-                            name="address"
-                            rows="4"
-                            placeholder="Enter customer address"
-                        ><?= htmlspecialchars(
+                    <textarea name="address" rows="4" placeholder="Enter customer address"><?= htmlspecialchars(
                             $editCustomer['address'] ?? ''
                         ) ?></textarea>
 
-                    </div>
-
-
                 </div>
 
 
-                <!-- FORM BUTTONS -->
-
-                <div class="form-actions">
-
-                    <a
-                        href="index.php"
-                        class="secondary-btn"
-                    >
-                        Cancel
-                    </a>
+            </div>
 
 
-                    <button
-                        type="submit"
-                        class="primary-btn"
-                    >
+            <!-- FORM BUTTONS -->
 
-                        <?= $editCustomer
+            <div class="form-actions">
+
+                <a href="index.php" class="secondary-btn">
+                    Cancel
+                </a>
+
+
+                <button type="submit" class="primary-btn">
+
+                    <?= $editCustomer
                             ? 'Update Customer'
                             : 'Save Customer'
-                        ?>
+        ?>
 
-                    </button>
+                </button>
 
-                </div>
+            </div>
 
 
-            </form>
+        </form>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -396,10 +353,7 @@ while ($row = $result->fetch_assoc()) {
             </div>
 
 
-            <a
-                href="index.php?add=1"
-                class="secondary-btn"
-            >
+            <a href="index.php?add=1" class="secondary-btn">
                 + Add Customer
             </a>
 
@@ -455,35 +409,35 @@ while ($row = $result->fetch_assoc()) {
                     <?php if (!empty($customers)): ?>
 
 
-                        <?php foreach ($customers as $customer): ?>
+                    <?php foreach ($customers as $customer): ?>
 
 
-                            <tr>
+                    <tr>
 
 
-                                <!-- ID -->
+                        <!-- ID -->
 
-                                <td>
+                        <td>
 
-                                    <span class="customer-id">
+                            <span class="customer-id">
 
-                                        #
-                                        <?= $customer['id'] ?>
+                                #
+                                <?= $customer['id'] ?>
 
-                                    </span>
+                            </span>
 
-                                </td>
+                        </td>
 
 
-                                <!-- NAME -->
+                        <!-- NAME -->
 
-                                <td>
+                        <td>
 
-                                    <div class="customer-name">
+                            <div class="customer-name">
 
-                                        <div class="customer-avatar">
+                                <div class="customer-avatar">
 
-                                            <?= strtoupper(
+                                    <?= strtoupper(
                                                 substr(
                                                     $customer['name'],
                                                     0,
@@ -491,219 +445,197 @@ while ($row = $result->fetch_assoc()) {
                                                 )
                                             ) ?>
 
-                                        </div>
+                                </div>
 
 
-                                        <div>
+                                <div>
 
-                                            <strong>
+                                    <strong>
 
-                                                <?= htmlspecialchars(
+                                        <?= htmlspecialchars(
                                                     $customer['name']
                                                 ) ?>
 
-                                            </strong>
+                                    </strong>
 
-                                        </div>
+                                </div>
 
-                                    </div>
+                            </div>
 
-                                </td>
+                        </td>
 
 
-                                <!-- PHONE -->
+                        <!-- PHONE -->
 
-                                <td>
+                        <td>
 
-                                    <span class="phone-text">
+                            <span class="phone-text">
 
-                                        📞
+                                📞
 
-                                        <?= htmlspecialchars(
+                                <?= htmlspecialchars(
                                             $customer['phone']
                                         ) ?>
 
-                                    </span>
+                            </span>
 
-                                </td>
+                        </td>
 
 
-                                <!-- EMAIL -->
+                        <!-- EMAIL -->
 
-                                <td>
+                        <td>
 
-                                    <?php if (
+                            <?php if (
                                         !empty(
                                             $customer['email']
                                         )
                                     ): ?>
 
-                                        <?= htmlspecialchars(
+                            <?= htmlspecialchars(
                                             $customer['email']
                                         ) ?>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <span class="muted">
-                                            —
-                                        </span>
+                            <span class="muted">
+                                —
+                            </span>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </td>
+                        </td>
 
 
-                                <!-- ADDRESS -->
+                        <!-- ADDRESS -->
 
-                                <td>
+                        <td>
 
-                                    <?php if (
+                            <?php if (
                                         !empty(
                                             $customer['address']
                                         )
                                     ): ?>
 
-                                        <span
-                                            class="address-text"
-                                            title="<?= htmlspecialchars(
+                            <span class="address-text" title="<?= htmlspecialchars(
                                                 $customer['address']
-                                            ) ?>"
-                                        >
+                                            ) ?>">
 
-                                            <?= htmlspecialchars(
+                                <?= htmlspecialchars(
                                                 $customer['address']
                                             ) ?>
 
-                                        </span>
+                            </span>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <span class="muted">
-                                            —
-                                        </span>
+                            <span class="muted">
+                                —
+                            </span>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </td>
+                        </td>
 
 
-                                <!-- STATUS -->
+                        <!-- STATUS -->
 
-                                <td>
+                        <td>
 
-                                    <?php if (
+                            <?php if (
                                         $customer['status'] == 1
                                     ): ?>
 
-                                        <span class="status active">
+                            <span class="status active">
 
-                                            <span>
-                                                ●
-                                            </span>
+                                <span>
+                                    ●
+                                </span>
 
-                                            Active
+                                Active
 
-                                        </span>
+                            </span>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <span class="status inactive">
+                            <span class="status inactive">
 
-                                            <span>
-                                                ●
-                                            </span>
+                                <span>
+                                    ●
+                                </span>
 
-                                            Inactive
+                                Inactive
 
-                                        </span>
+                            </span>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </td>
-
-
-                                <!-- ACTION -->
-
-                                <td>
-
-                                    <div class="action-buttons">
+                        </td>
 
 
-                                        <a
-                                            href="show.php?id=<?= $customer['id'] ?>"
-                                            class="action-btn view"
-                                            title="View Customer"
-                                        >
-                                            👁
-                                        </a>
+                        <!-- ACTION -->
+
+                        <td>
+
+                            <div class="action-buttons">
 
 
-                                        <a
-                                            href="index.php?edit=<?= $customer['id'] ?>"
-                                            class="action-btn edit"
-                                            title="Edit Customer"
-                                        >
-                                            ✏
-                                        </a>
+                                <a href="show.php?id=<?= $customer['id'] ?>" class="action-btn view" title="View Customer">
+                                    👁
+                                </a>
 
 
-                                       <a
-    href="delete.php?id=<?= (int) $customer['id'] ?>"
-    class="action-btn delete"
-    title="Delete Customer"
-    onclick="return confirm('Are you sure you want to delete this customer?')"
->
-    🗑
-</a>
+                                <a href="index.php?edit=<?= $customer['id'] ?>" class="action-btn edit" title="Edit Customer">
+                                    ✏
+                                </a>
 
 
-                                    </div>
-
-                                </td>
-
-
-                            </tr>
+                                <a href="delete.php?id=<?= (int) $customer['id'] ?>" class="action-btn delete" title="Delete Customer" onclick="return confirm('Are you sure you want to delete this customer?')">
+                                    🗑
+                                </a>
 
 
-                        <?php endforeach; ?>
+                            </div>
+
+                        </td>
+
+
+                    </tr>
+
+
+                    <?php endforeach; ?>
 
 
                     <?php else: ?>
 
 
-                        <tr>
+                    <tr>
 
-                            <td
-                                colspan="7"
-                                class="empty-data"
-                            >
+                        <td colspan="7" class="empty-data">
 
-                                <div class="empty-state">
+                            <div class="empty-state">
 
-                                    <div class="empty-icon">
-                                        👥
-                                    </div>
-
-                                    <h3>
-                                        No Customers Found
-                                    </h3>
-
-                                    <p>
-                                        Start by adding your first customer.
-                                    </p>
-
-                                    <a
-                                        href="index.php?add=1"
-                                        class="primary-btn"
-                                    >
-                                        + Add Customer
-                                    </a>
-
+                                <div class="empty-icon">
+                                    👥
                                 </div>
 
-                            </td>
+                                <h3>
+                                    No Customers Found
+                                </h3>
 
-                        </tr>
+                                <p>
+                                    Start by adding your first customer.
+                                </p>
+
+                                <a href="index.php?add=1" class="primary-btn">
+                                    + Add Customer
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
 
 
                     <?php endif; ?>
