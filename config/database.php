@@ -1,10 +1,10 @@
 <?php
 
 /* Change these values if your MySQL credentials are different. */
-$host = '192.168.11.105';
+$host = '127.0.0.1';
 $dbname = 'agro_drop';
-$username = 'user1';
-$password = 'tmssict123';
+$username = 'root';
+$password = 'root';
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
